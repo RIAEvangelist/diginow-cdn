@@ -11,8 +11,8 @@ config.domain           = 'cdn.diginow.it';
 config.root             = `${__dirname}/node_modules/`;
 config.server.index     = 'index.html';
 config.https            ={
-    privateKey:`/path/to/your/certs/private/server.key`,
-    certificate:`/path/to/your/certs/server.pub`,
+    privateKey:`${__dirname}/certs/server.key`,
+    certificate:`${__dirname}/certs/server.pub`,
     port:4433,
     only:true
 }
