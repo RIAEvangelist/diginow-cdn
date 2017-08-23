@@ -28,20 +28,30 @@ if (cluster.isMaster) {
 } else {
 
   // serve raw for now
-  // server.beforeServe=beforeServe;
-
+  server.beforeServe=beforeServe;
   function beforeServe(req,res,body,enc){
+    response.setHeader('strict-transport-security','max-age=86400; includeSubDomains');
+
+    if(request.uri.protocol!=='https'){
+      response.statusCode = 301;
+      response.setHeader(
+        'location',
+        `https://${request.uri.host}${request.url}`
+      );
+      serve(request,response);
+      return  true;
+    }
+
     if(!req.uri.query.min){
         return;
     }
 
     if(res.getHeader('Content-Type')!=server.config.contentType.js){
           return;
-      }
+    }
 
-      body.value=UglifyJS.minify(body.value);
+    body.value=UglifyJS.minify(body.value);
   }
 
   server.deploy(config);
-
 }
