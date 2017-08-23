@@ -25,7 +25,8 @@ if (cluster.isMaster) {
 
 } else {
 
-  server.beforeServe=beforeServe;
+  // serve raw for now
+  // server.beforeServe=beforeServe;
 
   function beforeServe(req,res,body,enc){
     if(!req.uri.query.min){
