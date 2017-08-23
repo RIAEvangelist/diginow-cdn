@@ -1,0 +1,24 @@
+{
+  "name": "diginow-cdn",
+  "version": "1.0.0",
+  "description": "diginow cdn",
+  "main": "cdn.js",
+  "scripts": {
+    "start":"forever start cdn.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RIAEvangelist/diginow-cdn.git"
+  },
+  "author": "Brandon Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RIAEvangelist/diginow-cdn/issues"
+  },
+  "homepage": "https://github.com/RIAEvangelist/diginow-cdn#readme",
+  "dependencies": {
+    "forever": "^0.15.3",
+    "node-http-server": "^8.1.0"
+  }
+}
