@@ -8,7 +8,7 @@ const numCPUs = require('os').cpus().length;
 const certPath='/etc/letsencrypt/live/cdn.diginow.it';
 
 const config=new server.Config;
-config.port             = null;
+config.port             = 80;
 config.domain           = 'cdn.diginow.it';
 config.root             = `${__dirname}/node_modules/`;
 config.server.index     = 'index.html';
