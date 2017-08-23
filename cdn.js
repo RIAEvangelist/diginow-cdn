@@ -5,14 +5,16 @@ const UglifyJS = require("uglify-js");
 const server=require('node-http-server');
 const numCPUs = require('os').cpus().length;
 
-const config=server.configTemplate();
+const certPath='/etc/letsencrypt/live/cdn.diginow.it';
+
+const config=new server.Config;
 config.port             = null;
 config.domain           = 'cdn.diginow.it';
 config.root             = `${__dirname}/node_modules/`;
 config.server.index     = 'index.html';
 config.https            ={
-    privateKey:`${__dirname}/certs/server.key`,
-    certificate:`${__dirname}/certs/server.pub`,
+    privateKey:`${certPath}/privkey.pem`,
+    certificate:`${certPath}/fullchain.pem`,
     port:4433,
     only:true
 }
