@@ -12,7 +12,7 @@ config.port             = 80;
 config.domain           = 'cdn.diginow.it';
 config.root             = `${__dirname}/node_modules/`;
 config.server.index     = 'index.html';
-config.https            ={
+config.https            = {
     privateKey:`${certPath}/privkey.pem`,
     certificate:`${certPath}/fullchain.pem`,
     port:4433,
