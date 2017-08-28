@@ -30,15 +30,15 @@ if (cluster.isMaster) {
   // serve raw for now
   server.beforeServe=beforeServe;
   function beforeServe(req,res,body,enc){
-    response.setHeader('strict-transport-security','max-age=86400; includeSubDomains');
+    res.setHeader('strict-transport-security','max-age=86400; includeSubDomains');
 
-    if(request.uri.protocol!=='https'){
-      response.statusCode = 301;
-      response.setHeader(
+    if(req.uri.protocol!=='https'){
+      res.statusCode = 301;
+      res.setHeader(
         'location',
-        `https://${request.uri.host}${request.url}`
+        `https://${req.uri.host}${req.url}`
       );
-      serve(request,response);
+      serve(req,res);
       return  true;
     }
 
