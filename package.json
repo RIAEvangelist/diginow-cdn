@@ -4,7 +4,7 @@
   "description": "diginow cdn",
   "main": "cdn.js",
   "scripts": {
-    "start": "forever start cdn.js",
+    "start": "forever -a --minUptime 100 --spinSleepTime 250 start cdn.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
